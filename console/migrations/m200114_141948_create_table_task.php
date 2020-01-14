@@ -35,18 +35,4 @@ class m200114_141948_create_table_task extends Migration
         return true;
     }
 
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m200114_141948_create_table_task cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

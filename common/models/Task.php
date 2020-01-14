@@ -3,6 +3,9 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\filters\VerbFilter;
 
 /**
  * This is the model class for table "task".
@@ -27,6 +30,19 @@ class Task extends \yii\db\ActiveRecord
     {
         return 'task';
     }
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class
+            ],
+            [
+                'class' => BlameableBehavior::class,
+                'createdByAttribute' => 'creator_id',
+                'updatedByAttribute' => 'updater_id'
+            ],
+        ];
+    }
 
     /**
      * {@inheritdoc}
@@ -34,12 +50,14 @@ class Task extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'creator_id', 'created_at'], 'required'],
+            [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['executor_id', 'started_at', 'completed_at', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
+
         ];
     }
+
 
     /**
      * {@inheritdoc}
