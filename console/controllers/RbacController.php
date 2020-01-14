@@ -16,14 +16,17 @@ class RbacController extends Controller
        // $admin = $auth->createRole('admin');
        // $user = $auth->createRole('user');
         $admin = $auth->getRole('admin');
-        $user = $auth->getRole('user');
+        //$user = $auth->getRole('user');
 
 //        $auth->add($admin);
 //        $auth->add($user);
 
-        $auth->assign($admin, 3);
-        $auth->assign($user, 1);
-        $auth->assign($user, 2);
+//        $auth->assign($admin, 3);
+//        $auth->assign($user, 1);
+//        $auth->assign($user, 2);
+        $permission = $auth->createPermission('canSeeAdminPage');
+        $auth->add($permission);
+        $auth->addChild($admin, $permission);
 
 
     }
