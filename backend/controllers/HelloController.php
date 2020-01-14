@@ -14,6 +14,23 @@ class HelloController extends Controller
 {
 
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'actions' => ['*'],
+                    'allow' => true,
+                    'roles' => ['admin'],
+                ],
+
+            ],
+        ],
+    ];
+    }
+
     /**
      * Displays homepage.
      *
