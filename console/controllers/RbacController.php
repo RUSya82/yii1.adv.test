@@ -21,9 +21,9 @@ class RbacController extends Controller
 //        $auth->add($admin);
 //        $auth->add($user);
 
-        $auth->assign($admin, 1);
-        $auth->assign($user, 3);
-        $auth->assign($user, 2);
+        //$auth->assign($admin, 1);
+       // $auth->assign($user, 3);
+        //$auth->assign($user, 2);
         $permission = $auth->createPermission('canSeeAdminPage');
         $auth->add($permission);
         $auth->addChild($admin, $permission);

@@ -1,0 +1,31 @@
+.chat{
+    width: 300px;
+    /*height: 320px;*/
+    border: 2px solid black;
+    position: absolute;
+    bottom: 60px;
+    right: 100px;
+    background: white;
+}
+#chat-panel{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#messages{
+    width: 100%;
+    height: 30px;
+}
+#chatMessages{
+    width: 100%;
+    height: 200px;
+    overflow: auto;
+}
+#sendMessage{
+    width: 100%;
+    height: 30px;
+}
+/*.container{*/
+/*    position: relative;*/
+/*}*/

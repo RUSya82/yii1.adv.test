@@ -66,6 +66,25 @@ AppAsset::register($this);
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
+        <?php if (Yii::$app->user->isGuest) {
+            $username = 'guest' . time();
+        } else {
+            $username = Yii::$app->user->identity->username;
+        } ?>
+        <div class="chat">
+            <div id="chat-panel">
+                <span class="js-username"><?=$username?></span>
+                <button id="hideMessages">свернуть</button>
+            </div>
+            <div id="hiddenArea">
+                <div id="chatMessages">
+
+                </div>
+                <textarea name="" id="messages"  rows="3"></textarea>
+                <button id="sendMessage"> Отправить </button>
+            </div>
+
+        </div>
     </div>
 </div>
 
